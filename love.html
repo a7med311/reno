@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Love Days</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #e91e63;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin: 0 0 20px 0;
+    }
+    #timer {
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      direction: ltr;
+      word-wrap: break-word;
+      max-width: 90vw;
+    }
+  </style>
+</head>
+<body>
+  <h1>❤️ Days of our love     ❤️</h1>
+  <div id="timer"></div>
+
+  <script>
+    const loveStart = new Date("2025-05-24T04:11:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - loveStart;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").innerHTML =
+        `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
